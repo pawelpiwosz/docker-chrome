@@ -48,6 +48,18 @@ docker run -it --rm --name chrome \
   chrome
 ```
 
+In order to check the Chrome version, run:
+
+```
+docker run -it --rm --name chrome \
+  -v /dev/shm:/dev/shm \
+  -v /tmp/.X11-unix:/tmp/.X11-unix\
+  -e DISPLAY=$DISPLAY \
+  --security-opt seccomp=$(pwd)/chrome.json \
+  --entrypoint "chromium-browser" \
+  chrome --version
+```
+
 ### Memory reservation
 
 This contaier can be run with restricted memory size. In order to do it, add
