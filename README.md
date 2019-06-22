@@ -6,6 +6,9 @@ container was build.
 #### Test status
 
 [![Build Status](https://travis-ci.org/pawelpiwosz/docker-chrome.svg?branch=master)](https://travis-ci.org/pawelpiwosz/docker-chrome)
+[![](https://images.microbadger.com/badges/image/almerhor/chrome.svg)](https://microbadger.com/images/almerhor/chrome "Get your own image badge on microbadger.com")
+[![](https://images.microbadger.com/badges/version/almerhor/chrome.svg)](https://microbadger.com/images/almerhor/chrome "Get your own version badge on microbadger.com")
+[![](https://images.microbadger.com/badges/commit/almerhor/chrome.svg)](https://microbadger.com/images/almerhor/chrome "Get your own commit badge on microbadger.com")
 
 ### Synopsis
 

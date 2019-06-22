@@ -37,10 +37,9 @@ jobs:
       - echo "${DOCKER_PASSWORD}" | docker login -u "${DOCKER_USERNAME}" --password-stdin
       - docker tag chrome ${DOCKER_USERNAME}/chrome
       - docker push ${DOCKER_USERNAME}/chrome
-      #- curl -X POST
+      - curl -X POST https://hooks.microbadger.com/images/almerhor/chrome/Pr_xBzE1jfVTDriBPzAHg_wESYE=
       - docker logout
 
   - stage: Check container
     script:
       - docker pull ${DOCKER_USERNAME}/chrome
-      - docker run -it --rm --name chrome -v /dev/shm:/dev/shm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --security-opt seccomp=$(pwd)/chrome.json --entrypoint "chromium-browser" ${DOCKER_USERNAME}/chrome --version
