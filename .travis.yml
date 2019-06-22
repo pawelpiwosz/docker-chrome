@@ -43,4 +43,4 @@ jobs:
   - stage: Check container
     script:
       - docker pull ${DOCKER_USERNAME}/chrome
-      - docker run -it --rm --name chrome -v /dev/shm:/dev/shm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --security-opt seccomp=$(pwd)/chrome.json --entrypoint "chromium-browser" ${DOCKER_USERNAME}chrome --version
+      - docker run -it --rm --name chrome -v /dev/shm:/dev/shm -e DISPLAY=$DISPLAY -v /tmp/.X11-unix:/tmp/.X11-unix --security-opt seccomp=$(pwd)/chrome.json --entrypoint "chromium-browser" ${DOCKER_USERNAME}/chrome --version
