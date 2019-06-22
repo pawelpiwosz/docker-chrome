@@ -1,55 +1,48 @@
-## Dockerized Firefox
+## Dockerized Chrome
 
-Docker container for Firefox. The version is last one when container
-was build.
+Docker container for Chrome. The version of the browser is the current one when
+container was build.
 
 #### Test status
 
-[![Build Status](https://travis-ci.org/pawelpiwosz/docker-firefox.svg?branch=master)](https://travis-ci.org/pawelpiwosz/docker-firefox)
-[![](https://images.microbadger.com/badges/image/almerhor/firefox.svg)](https://microbadger.com/images/almerhor/firefox "Get your own image badge on microbadger.com")
-[![](https://images.microbadger.com/badges/version/almerhor/firefox.svg)](https://microbadger.com/images/almerhor/firefox "Get your own version badge on microbadger.com")
-[![](https://images.microbadger.com/badges/commit/almerhor/firefox.svg)](https://microbadger.com/images/almerhor/firefox "Get your own commit badge on microbadger.com")
+[![Build Status](https://travis-ci.org/pawelpiwosz/docker-chrome.svg?branch=master)](https://travis-ci.org/pawelpiwosz/docker-chrome)
 
 ### Synopsis
 
-Sometimes it is worth to use the web browser in isolated environment
+Sometimes it is worth to use the web browser in isolated environment. This
+container contains chromium browser, for more safe surfing.
+
+### To do
+
+This image has some errors still. I hope I'll be able to solve them.
 
 ### Pull image
 
 In order to pull image from dockerhub registry, run:
 
 ```
-docker pull almerhor/firefox
+docker pull almerhor/chrome
 ```
 
 ### Build
-
+bra
 In order to build the image, run:
 
 ```
-docker build -t firefox .
+docker build -t chrome .
 ```
 
 ### Run
 
-In order to run firefox container, execute:
+In order to run chrome container, execute:
 
 ```
-docker run -it --rm --name firefox \
+docker run -it --rm --name chrome \
   -v /dev/shm:/dev/shm \
   -v /tmp/.X11-unix:/tmp/.X11-unix\
   -e DISPLAY=$DISPLAY \
-  firefox
-```
-
-In order to run in private mode:
-
-```
-docker run -it --rm --name firefox \
-  -v /dev/shm:/dev/shm \
-  -v /tmp/.X11-unix:/tmp/.X11-unix\
-  -e DISPLAY=$DISPLAY \
-  firefox --private-window
+  --security-opt seccomp=$(pwd)/chrome.json \
+  chrome
 ```
 
 ### Memory reservation
@@ -59,4 +52,6 @@ This contaier can be run with restricted memory size. In order to do it, add
 
 ### Credits
 
-I wrote this container based on [Marco](https://github.com/mmatoscom/) work.
+I wrote this container based on [Marco](https://github.com/mmatoscom/) work.  
+Also, I used a tips described in [this repo](https://github.com/Zenika/alpine-chrome).
+Many thanks for great job to [Jessfraz](https://github.com/jessfraz/dockerfiles).
